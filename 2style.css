@@ -1,0 +1,166 @@
+h1 {
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+       color: black;
+       text-align: center;
+  
+  }
+  div {
+    background-color: lightskyblue;
+    box-shadow: #000000;
+    margin: 0;
+    padding: 5;
+    text-align: center;
+      align-content: center;
+  }
+  
+  body {
+      height: 100%;
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      max-width: 1000px;
+      background-color: rgb(255, 255, 134);
+      vertical-align: center;
+      align-items: centre;
+      margin:0 auto;
+      
+    }
+  
+  .section {
+    padding: 20px;
+    border: 2px solid black;
+    box-shadow: 11px 8px 0px 0px rgba(0, 0, 0, 1);
+    border-radius: 5px;
+    margin: 20px;
+    
+  }
+
+
+
+  .section input {
+    background-color: pink;
+    border: 2px solid black;
+    max-width: 40%;
+    padding: 16px 24px;
+    height: 10px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  .section label {
+    font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    color:#1A1A1A;
+    text-align: center;
+  }
+  .section select {
+    background-color: pink;
+    border-radius: 5px;
+    border: 2px solid black;
+    text-align: center;
+  }
+  .input checkbox {
+    display: inline-flex;
+  }
+
+
+
+  .section button {
+    appearance: none;
+      background-color: pink;
+      border: 2px solid #1A1A1A;
+      border-radius: 5px;
+      box-sizing: border-box;
+      color: black;
+      cursor: pointer;
+      display: inline-block;
+      font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+      font-size: 16px;
+      font-weight: 600;
+      line-height: normal;
+      margin: 0;
+      min-height: 60px;
+      min-width: 0;
+      outline: none;
+      padding: 16px 24px;
+      text-align: center;
+      text-decoration: none;
+      transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      width: 25%;
+      will-change: transform;
+  }
+  .section button:disabled {
+    pointer-events: none;
+  }
+  
+  .section button:hover {
+    box-shadow: 8px 4px 0px 0px rgba(0, 0, 0, 1);
+    transform: translateY(-2px);
+  }
+  
+  .section button:active {
+    box-shadow: none;
+    transform: translateY(0);
+    color: grey;
+  }
+  
+
+
+
+  label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: bold;
+  }
+  
+  select, input[type="number"], input[type="file"], textarea {
+      width: 100%;
+      padding: 8px;
+      margin-bottom: 10px;
+    }
+
+  
+    
+  
+  .variant-block {
+      border: 1px solid #ccc;
+      padding: 15px;
+      margin-bottom: 10px;
+      background: #f9f9f9;
+      text-align: center;
+      align-content: center;
+    }
+  
+
+    .ticks-container {
+      display: inline-flex;
+      gap: 20px; /* space between each checkbox group */
+      
+    }
+    
+    /* Optional: style the checkbox-label pair */
+    .variantCheckboxes {
+      display:inline-flex;
+      
+      gap: 8px;
+    }
+ 
+    
+    /* Remove line breaks */
+    .variantCheckboxes br {
+      display: none;
+    }
+
+  
+  #summary {
+    padding: 20px;
+    border: 2px solid black;
+    box-shadow: 11px 8px 0px 0px rgba(0, 0, 0, 1);
+    border-radius: 5px;
+    max-width: 1000px;
+    }
+  #summary label {
+    background: pink;
+    color:#000000;
+  
+  }

@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vinyl Record Configurator</title>
+  <link rel="stylesheet" href="2style.css">
+  <style>
+  </style>
+  
+  <script type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+
+<script src="functions/2render-variant-blocks.js"></script>
+<script src="functions/2printed-parts.js"></script>
+<script src="functions/2change-handlers.js"></script>
+<script src="data/data-stuff.js"></script>
+<script src="functions/2calculate-total.js"></script>
+
+
+
+<script type="text/javascript">
+(function(){
+emailjs.init({
+  publicKey: "UT58YmwXcbUJ5YqoR",
+});
+})();
+</script>
+<script src="functions/2submit.js"></script>
+<script>
+  function getCheckboxValues() {
+  const checkboxes = document.querySelectorAll('.variantCheckboxes input[type="checkbox"]');
+  const checkboxStates = {};
+
+  checkboxes.forEach((checkbox) => {
+    checkboxStates[checkbox.id] = checkbox.checked;
+  });
+
+  console.log(checkboxStates);
+  return checkboxStates;
+}
+document.addEventListener('change', (e) => {
+  if (e.target.matches('.variantCheckboxes input[type="checkbox"]')) {
+    getCheckboxValues(); // or handle this data however you like
+  }
+})
+</script>
+</head>
+<body>
+  <h1>Vinyl Record Configurator</h1>
+
+  <div class="section">
+    <label for="totalQuantity">Total Quantity</label>
+    <input type="number" id="totalQuantity" value="100" min="100" step="50" />
+ 
+    <label for="variantCount">Number of Variants</label>
+    <select id="variantCount">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+    <!-- i added discs -->
+    <label for="discCount">Number of Discs</label>
+    <select id="discCount">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select>
+  
+    <label for="setup">Lacquer & Metalwork Type</label>
+    <select id="setup">
+      <option value="450">Lacquer Disc Cutting + Metalwork</option>
+      <option value="225">Supplied Lacquers + Metalwork</option>
+      <option value="120">Metalwork From Mother</option>
+      <option value="50">Supplied Unformed Metalwork</option>
+      <option value="50">Metalwork Deep Clean</option>
+    </select>
+  </div>
+
+  <div class="section" id="variantContainer"></div>
+  <div class="section" id="printedPartsContainer"></div>
+  
+    
+
+
+  
+  <div class="section">
+    <button onclick="calculateTotal()">Calculate Total</button>
+  </div>
+    
+  
+
+  <div id="summary">
+    <h2>Order Summary</h2>
+    <div id="summaryContent">Fill in the form and click calculate.</div>
+  </div>
+
+ 
+
+  <div class="section">
+    <label for="name">Name</label>
+    <input type="text" id="name" name="name" required>
+ 
+    <label for="catnumber">Catalogue Number</label>
+    <input type="text" id="catnumber" name="catnumber" required>
+  
+    <label for="email">email</label>
+    <input type="email" id="email" name="email" required>
+  </div>
+  <div class="section"> <!--submit button-->
+    <button onclick="submit()">Submit</button>
+  </div>
+  
+  <script>
+    window.addEventListener('DOMContentLoaded', () => {
+      printedParts(); // will only run once
+    });
+  </script>
+  
+  <script>
+  
+    const variantContainer = document.getElementById("variantContainer");
+    const variantCountSelector = document.getElementById("variantCount");
+  
+    
+      variantCountSelector.addEventListener("change", () => {
+        renderVariantBlocks(); // builds variant config section
+        
+   
+    
+  
+  });
+      renderVariantBlocks(); // this one can re-render as needed
+      
+      
+  console.log("dom is loading");
+    </script>
+
+  <script>
+// Function to toggle checkboxes based on variant count
+function updateCheckboxVisibility() {
+  const count = parseInt(document.getElementById('variantCount').value, 10);
+  const checkboxes = document.querySelectorAll('.variantCheckboxes');
+
+  checkboxes.forEach(box => {
+    const variantNum = parseInt(box.dataset.variant, 10);
+    box.style.display = (count > 1 && variantNum <= count) ? 'block' : 'none';
+  });
+}
+
+// Run on page load
+document.addEventListener('DOMContentLoaded', () => {
+  printedParts(); // Show the UI block
+  updateCheckboxVisibility(); // Make sure visibility is correct
+
+  // Watch for changes
+  document.getElementById('variantCount').addEventListener('change', updateCheckboxVisibility);
+});
+
+</script>   
+</body>
+</html>
