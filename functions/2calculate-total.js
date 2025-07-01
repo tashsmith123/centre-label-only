@@ -33,10 +33,6 @@ console.log("const is working");
     console.log(`Variant ${i + 1}: checkbox=${isChecked}, label=${currentLabelType}`);
   
     // Continue with your label cost logic here...
-      
-      
-      const labelType = labelSelects[i]?.value || "White";
-
 //attempting centre labels costing
 
 
@@ -44,8 +40,8 @@ let labelCost = 0;
 
 // If there is only 1 variant, always calculate labels
 if (qtyInputs.length === 1) {
-  const currentLabelType = labelSelects[i]?.value || "White";
-
+  const currentLabelType = labelSelects[i]?.value;
+console.log(`Variant ${i + 1} Label type:`, currentLabelType);
   if (currentLabelType === "White") {
     labelCost = 0.06;
   } else if (currentLabelType === "Supplied") {

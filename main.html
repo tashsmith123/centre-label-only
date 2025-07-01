@@ -149,7 +149,7 @@ function updateCheckboxVisibility() {
 
   checkboxes.forEach(box => {
     const variantNum = parseInt(box.dataset.variant, 10);
-    box.style.display = (count > 1 && variantNum <= count) ? 'block' : 'none';
+    box.style.display = (count >= 1 && variantNum <= count) ? 'block' : 'none';
   });
 }
 
